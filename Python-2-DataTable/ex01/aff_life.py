@@ -3,24 +3,25 @@ import matplotlib.pyplot as plt
 
 
 def main():
-    
+
     """
 
     """
     dataset = load("life_expectancy_years.csv")
-    germany_data = dataset[dataset['country'] == 'Germany']
-    years = germany_data.columns[1:]
-    life_expectancy = germany_data.values[0][1:]
+    france_data = dataset[dataset['country'] == 'France']
+    years = france_data.columns[1:]
+    life_expectancy = france_data.values[0][1:]
 
-    plt.plot(years, life_expectancy, label='Germany')
-    plt.title('Life Expectancy in Germany Over the Years')
+    plt.plot(years, life_expectancy, label='France')
+    plt.title('France Life expectancy Projections')
     plt.xlabel('Year')
-    plt.xticks(years[::40], rotation=45)
+    plt.xticks(years[::40])
     plt.ylabel('Life Expectancy')
-    plt.yticks(range(30, 101, 10))
-    plt.legend()
+    plt.yticks(range(30, 100, 10))
     plt.tight_layout()
-    plt.show()
+    plt.savefig("France.png")
+#    plt.show()
+
 
 if __name__ == "__main__":
-	main()
+    main()
